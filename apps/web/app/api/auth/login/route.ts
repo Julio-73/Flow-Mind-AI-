@@ -47,20 +47,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({
         user: { id: user.id, email: user.email, name: user.name },
       });
-    } catch {
-      const demoUser = { id: "demo-1", email: "demo@flowmind.ai", name: "Demo User" };
-      if (email === "demo@flowmind.ai" && password === "demo1234") {
-        const accessToken = signAccessToken({
-          userId: demoUser.id,
-          email: demoUser.email,
-          orgId: "org-1",
-          role: "ADMIN",
-        });
-        const refreshToken = signRefreshToken({ userId: demoUser.id });
-        setAuthCookies(accessToken, refreshToken);
-        return NextResponse.json({ user: demoUser });
-      }
-      return NextResponse.json({ error: "Invalid email or password" }, { status: 401 });
+    } catch (dbError) {
+      return NextResponse.json({ error: "Authentication service unavailable" }, { status: 503 });
     }
   } catch {
     return NextResponse.json({ error: "An unexpected error occurred" }, { status: 500 });

@@ -34,7 +34,11 @@ export class SocketManager {
       transports: ["websocket", "polling"],
     });
 
-    const redisUrl = process.env["REDIS_URL"] ?? "redis://localhost:6379";
+    const redisUrl = process.env["REDIS_URL"];
+
+if (!redisUrl) {
+  throw new Error("REDIS_URL environment variable is required for WebSocket server");
+}
     const pubClient = new Redis(redisUrl);
     const subClient = new Redis(redisUrl);
 
@@ -57,7 +61,10 @@ export class SocketManager {
       }
       try {
         const jwt = require("jsonwebtoken");
-        const secret = process.env["JWT_ACCESS_SECRET"] ?? "secret";
+        const secret = process.env["JWT_SECRET"];
+        if (!secret) {
+          return next(new Error("JWT secret not configured"));
+        }
         const decoded = jwt.verify(token, secret) as Record<string, unknown>;
         (socket as any).user = decoded;
         next();

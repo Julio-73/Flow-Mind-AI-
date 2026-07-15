@@ -30,7 +30,12 @@ if [ $# -lt 1 ]; then
 fi
 
 RESTORE_FILE="$1"
-DB_URL="${DATABASE_URL:-postgresql://flowmind:flowmind_pass@localhost:5432/flowmind}"
+DB_URL="${DATABASE_URL:-}"
+
+if [ -z "$DB_URL" ]; then
+  echo "ERROR: DATABASE_URL environment variable is required"
+  exit 1
+fi
 
 if [ ! -f "$RESTORE_FILE" ]; then
   echo "ERROR: File not found: $RESTORE_FILE"

@@ -5,6 +5,6 @@ export default {
   out: "./src/migrations",
   dialect: "postgresql",
   dbCredentials: {
-    url: process.env["DATABASE_URL"] ?? "postgresql://flowmind:flowmind_pass@localhost:5432/flowmind",
+    url: process.env["DATABASE_URL"],
   },
 } satisfies Config;

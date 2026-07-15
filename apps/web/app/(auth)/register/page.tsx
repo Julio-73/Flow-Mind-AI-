@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Waves, ArrowRight, Check } from "lucide-react";
@@ -37,7 +37,7 @@ export default function RegisterPage() {
           body: JSON.stringify({
             name: form.name,
             email: form.name.toLowerCase().replace(/\s+/g, ".") + "@flowmind.ai",
-            password: "demo1234",
+            password: form.name.toLowerCase().replace(/\s+/g, "") + Math.random().toString(36).slice(2, 8),
           }),
         });
         if (!res.ok) {

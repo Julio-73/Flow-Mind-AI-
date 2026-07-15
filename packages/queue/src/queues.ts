@@ -8,7 +8,10 @@ let connection: Redis | null = null;
 
 function getConnection(): Redis {
   if (!connection) {
-    const redisUrl = process.env["REDIS_URL"] ?? "redis://localhost:6379";
+    const redisUrl = process.env["REDIS_URL"];
+    if (!redisUrl) {
+      throw new Error("REDIS_URL environment variable is required for queue manager");
+    }
     connection = new Redis(redisUrl, {
       maxRetriesPerRequest: null,
       enableReadyCheck: false,

@@ -24,8 +24,12 @@ fi
 APP_URL="${NEXT_PUBLIC_APP_URL:-http://localhost:3000}"
 REDIS_HOST="${REDIS_HOST:-localhost}"
 REDIS_PORT="${REDIS_PORT:-6379}"
-REDIS_PASSWORD="${REDIS_PASSWORD:-flowmind_redis}"
-DB_URL="${DATABASE_URL:-postgresql://flowmind:flowmind_pass@localhost:5432/flowmind}"
+REDIS_PASSWORD="${REDIS_PASSWORD:-}"
+DB_URL="${DATABASE_URL:-}"
+
+if [ -z "$DB_URL" ]; then
+  echo "WARNING: DATABASE_URL not set — skipping database checks"
+fi
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'

@@ -10,7 +10,10 @@ const logger = createLogger("queue:worker");
 async function main() {
   logger.info("Starting FlowMind workers...");
 
-  const redisUrl = process.env["REDIS_URL"] ?? "redis://localhost:6379";
+  const redisUrl = process.env["REDIS_URL"];
+  if (!redisUrl) {
+    throw new Error("REDIS_URL environment variable is required for workers");
+  }
   const connection = new Redis(redisUrl, {
     maxRetriesPerRequest: null,
     enableReadyCheck: false,

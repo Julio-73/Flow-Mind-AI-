@@ -3,7 +3,11 @@ import bcrypt from "bcryptjs";
 import { randomBytes } from "crypto";
 import { cookies } from "next/headers";
 
-const JWT_SECRET = process.env["JWT_SECRET"] ?? "flowmind-dev-secret-change-in-production";
+const JWT_SECRET = process.env["JWT_SECRET"];
+
+if (!JWT_SECRET) {
+  throw new Error("JWT_SECRET environment variable is required");
+}
 const ACCESS_TOKEN_EXPIRY = "15m";
 const REFRESH_TOKEN_EXPIRY = "7d";
 

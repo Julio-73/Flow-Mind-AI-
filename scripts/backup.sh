@@ -27,7 +27,12 @@ BACKUP_BASE="${1:-$PROJECT_ROOT/backups}"
 BACKUP_DIR="${BACKUP_BASE}/$(date +%Y-%m-%d)"
 mkdir -p "$BACKUP_DIR"
 
-DB_URL="${DATABASE_URL:-postgresql://flowmind:flowmind_pass@localhost:5432/flowmind}"
+DB_URL="${DATABASE_URL:-}"
+
+if [ -z "$DB_URL" ]; then
+  echo "ERROR: DATABASE_URL environment variable is required"
+  exit 1
+fi
 RETENTION_DAYS="${BACKUP_RETENTION_DAYS:-30}"
 BACKUP_FILE="${BACKUP_DIR}/flowmind_$(date +%Y%m%d_%H%M%S).sql.gz"
 BACKUP_LOG="${BACKUP_DIR}/backup.log"
