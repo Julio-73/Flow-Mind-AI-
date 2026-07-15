@@ -21,7 +21,7 @@
   "dependencies": {
     "@flowmind/core": "workspace:*",
     "@flowmind/shared": "workspace:*",
-    "drizzle-orm": "^0.30.0",
+    "drizzle-orm": "^0.45.2",
     "drizzle-kit": "^0.21.0",
     "postgres": "^3.4.0",
     "zod": "^3.23.0"
