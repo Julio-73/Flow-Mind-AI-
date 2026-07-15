@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.turbo/
+dist/
+.env
+.env.local
+*.log
+*.err
+.DS_Store
+coverage/
+.temp/
+apps/web/src/
+*.tsbuildinfo
+apps/web/dev*
+dev*

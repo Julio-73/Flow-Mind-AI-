@@ -1,0 +1,17 @@
+# robots.txt — FlowMind AI
+# https://flowmind.ai
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Block AI training crawlers
+User-agent: GPTBot
+Disallow: /
+User-agent: Claude-Web
+Disallow: /
+User-agent: CCBot
+Disallow: /
+
+Sitemap: https://flowmind.ai/sitemap.xml

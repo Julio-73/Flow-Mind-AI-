@@ -1,0 +1,36 @@
+{
+  "name": "flowmind",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "clean": "turbo clean",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json}\"",
+    "db:generate": "pnpm --filter @flowmind/database db:generate",
+    "db:push": "pnpm --filter @flowmind/database db:push",
+    "db:migrate": "pnpm --filter @flowmind/database db:migrate",
+    "db:studio": "pnpm --filter @flowmind/database db:studio",
+    "typecheck": "turbo typecheck",
+    "security:audit": "pnpm audit --audit-level=high",
+    "security:outdated": "pnpm outdated",
+    "security:sbom": "npx @cyclonedx/cyclonedx-npm --output-file sbom.json --pnpm",
+    "security:check": "pnpm security:audit && pnpm lint && pnpm typecheck"
+  },
+  "devDependencies": {
+    "@next/env": "^16.2.10",
+    "@types/node": "^20.0.0",
+    "prettier": "^3.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "styled-jsx": "^5.1.7",
+    "turbo": "^1.13.0",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.1.0"
+}

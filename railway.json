@@ -1,0 +1,40 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "DOCKERFILE",
+    "dockerfilePath": "docker/Dockerfile",
+    "watchPatterns": [
+      "apps/**",
+      "packages/**",
+      "pnpm-lock.yaml",
+      "package.json",
+      "turbo.json",
+      "tsconfig.base.json"
+    ]
+  },
+  "deploy": {
+    "numReplicas": 2,
+    "sleepApplication": false,
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10,
+    "healthcheckPath": "/api/health",
+    "healthcheckTimeout": 100,
+    "healthcheckInterval": 30
+  },
+  "services": [
+    {
+      "name": "app",
+      "buildCommand": "pnpm build",
+      "startCommand": "pnpm --filter @flowmind/web start",
+      "healthcheckPath": "/api/health",
+      "port": 3000
+    },
+    {
+      "name": "worker",
+      "buildCommand": "pnpm --filter @flowmind/queue build",
+      "startCommand": "pnpm --filter @flowmind/queue start",
+      "healthcheckPath": "/api/health",
+      "port": 3001
+    }
+  ]
+}

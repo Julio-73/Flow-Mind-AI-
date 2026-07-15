@@ -1,0 +1,224 @@
+@keyframes flow-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(46, 230, 182, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(46, 230, 182, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes shimmer-slow {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes tide {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes node-active-pulse {
+  0%, 100% {
+    border-color: hsl(var(--biolume));
+    box-shadow: 0 0 20px rgba(46, 230, 182, 0.15);
+  }
+  50% {
+    border-color: hsl(var(--biolume) / 0.5);
+    box-shadow: 0 0 40px rgba(46, 230, 182, 0.25);
+  }
+}
+
+@keyframes connection-flow {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(46, 230, 182, 0.3), 0 0 20px rgba(46, 230, 182, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(46, 230, 182, 0.4), 0 0 40px rgba(46, 230, 182, 0.15);
+  }
+}
+
+.animate-flow-in {
+  animation: flow-in 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-shimmer-slow {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--biolume) / 0) 0%,
+    hsl(var(--biolume) / 0.15) 50%,
+    hsl(var(--biolume) / 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-slow 4s ease-in-out infinite;
+}
+
+.animate-tide {
+  animation: tide 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-ripple {
+  animation: ripple 0.6s linear;
+}
+
+.animate-node-active {
+  animation: node-active-pulse 2s ease-in-out infinite;
+}
+
+.animate-page-enter {
+  animation: page-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-page-enter-stagger > * {
+  animation: page-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-page-enter-stagger > *:nth-child(1) { animation-delay: 0s; }
+.animate-page-enter-stagger > *:nth-child(2) { animation-delay: 0.05s; }
+.animate-page-enter-stagger > *:nth-child(3) { animation-delay: 0.1s; }
+.animate-page-enter-stagger > *:nth-child(4) { animation-delay: 0.15s; }
+.animate-page-enter-stagger > *:nth-child(5) { animation-delay: 0.2s; }
+.animate-page-enter-stagger > *:nth-child(6) { animation-delay: 0.25s; }
+
+.animate-breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+.react-flow__edge-path {
+  cursor: pointer;
+  transition: stroke-width 0.2s ease, stroke 0.2s ease;
+}
+
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke-width: 3;
+  stroke: hsl(var(--biolume));
+}
+
+.react-flow__node {
+  transition: filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.react-flow__node:hover {
+  filter: brightness(1.1);
+}
+
+.react-flow__minimap {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid hsl(var(--border));
+}
+
+.react-flow__controls-button {
+  background-color: hsl(var(--card));
+  border-color: hsl(var(--border));
+  color: hsl(var(--foreground));
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.react-flow__controls-button:hover {
+  background-color: hsl(var(--secondary));
+}
+
+.react-flow__background {
+  opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

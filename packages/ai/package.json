@@ -1,0 +1,28 @@
+{
+  "name": "@flowmind/ai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "@flowmind/core": "workspace:*",
+    "@flowmind/shared": "workspace:*",
+    "zod": "^3.23.0",
+    "openai": "^4.47.0",
+    "@anthropic-ai/sdk": "^0.24.0",
+    "pino": "^9.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
