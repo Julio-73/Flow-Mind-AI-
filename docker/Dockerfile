@@ -1,4 +1,4 @@
-FROM node:20-alpine AS deps
+FROM node:26-alpine AS deps
 RUN apk add --no-cache libc6-compat curl
 RUN corepack enable && corepack prepare pnpm@9.1.0 --activate
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY packages/shared/package.json ./packages/shared/
 
 RUN pnpm install --frozen-lockfile
 
-FROM node:20-alpine AS builder
+FROM node:26-alpine AS builder
 RUN corepack enable && corepack prepare pnpm@9.1.0 --activate
 WORKDIR /app
 
@@ -37,7 +37,7 @@ ENV TURBO_TELEMETRY_DISABLED=1
 
 RUN pnpm build
 
-FROM node:20-alpine AS runner
+FROM node:26-alpine AS runner
 RUN corepack enable && corepack prepare pnpm@9.1.0 --activate
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
