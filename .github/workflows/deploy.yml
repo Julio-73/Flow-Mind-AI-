@@ -154,7 +154,7 @@ jobs:
     steps:
       - name: Notify on failure
         if: ${{ needs.deploy.result == 'failure' || needs.quality.result == 'failure' }}
-        uses: slackapi/slack-github-action@v1.26.0
+        uses: slackapi/slack-github-action@v3.0.5
         with:
           payload: |
             {
@@ -175,7 +175,7 @@ jobs:
 
       - name: Notify on success
         if: ${{ needs.deploy.result == 'success' }}
-        uses: slackapi/slack-github-action@v1.26.0
+        uses: slackapi/slack-github-action@v3.0.5
         with:
           payload: |
             {
