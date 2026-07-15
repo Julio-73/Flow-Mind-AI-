@@ -43,7 +43,7 @@ export function Topbar() {
         {/* Left: Search Cmd+K trigger */}
         <button
           onClick={() => setIsOpen(true)}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-border/50 bg-muted/30 text-muted-foreground text-sm hover:bg-muted/50 transition-colors w-full max-w-sm"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-border/50 bg-muted/30 text-muted-foreground text-sm hover:bg-muted/50 transition-colors w-full max-w-xs lg:max-w-sm"
         >
           <Search className="h-4 w-4 shrink-0" />
           <span className="flex-1 text-left">Search anything...</span>

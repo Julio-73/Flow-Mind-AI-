@@ -31,13 +31,13 @@ export function PageHeader({
   }
 
   return (
-    <div className={cn("flex items-start justify-between gap-4", className)}>
+    <div className={cn("flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4", className)}>
       <div className="space-y-1">
-        <h1 className="text-2xl font-sora font-bold tracking-tight">
+        <h1 className="text-xl sm:text-2xl font-sora font-bold tracking-tight">
           {title}
         </h1>
         {description && (
-          <p className="text-sm text-muted-foreground">{description}</p>
+          <p className="text-xs sm:text-sm text-muted-foreground">{description}</p>
         )}
       </div>
       {actions && <div className="flex items-center gap-2 shrink-0">{actions}</div>}

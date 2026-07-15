@@ -11,5 +11,6 @@ coverage/
 .temp/
 apps/web/src/
 *.tsbuildinfo
+next-env.d.ts
 apps/web/dev*
 dev*

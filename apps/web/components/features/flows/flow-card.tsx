@@ -29,17 +29,17 @@ interface FlowCardProps {
 export function FlowCard({ flow }: FlowCardProps) {
   return (
     <Link href={`/flows/${flow.id}/edit`}>
-      <Card variant="interactive" className="group">
-        <CardContent className="p-4">
-          <div className="flex items-start justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <div className={`w-2 h-2 rounded-full ${FLOW_STATUS_COLORS[flow.status]} animate-breathe`} aria-hidden="true" />
+      <Card variant="interactive" className="group h-full">
+        <CardContent className="p-3 sm:p-4 flex flex-col h-full">
+          <div className="flex items-start justify-between mb-2 sm:mb-3">
+            <div className="flex items-center gap-2 min-w-0 flex-1">
+              <div className={`w-2 h-2 rounded-full shrink-0 ${FLOW_STATUS_COLORS[flow.status]} animate-breathe`} aria-hidden="true" />
               <span className="sr-only">{flow.status}</span>
-              <h3 className="text-sm font-semibold font-sora">{flow.name}</h3>
+              <h3 className="text-sm font-semibold font-sora truncate">{flow.name}</h3>
             </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild onClick={(e) => e.preventDefault()}>
-                <button className="opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-foreground">
+                <button className="opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-foreground shrink-0 ml-2">
                   <MoreHorizontal className="h-4 w-4" />
                 </button>
               </DropdownMenuTrigger>
@@ -60,7 +60,7 @@ export function FlowCard({ flow }: FlowCardProps) {
             </DropdownMenu>
           </div>
 
-          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+          <div className="flex items-center gap-3 text-xs text-muted-foreground mt-auto">
             <div className="flex items-center gap-1 tabular-nums">
               <Play className="h-3 w-3" />
               <span>{formatNumber(flow.runCount)}</span>
@@ -70,7 +70,7 @@ export function FlowCard({ flow }: FlowCardProps) {
                 {(flow.successRate * 100).toFixed(0)}%
               </span>
             </div>
-            <span className="ml-auto">{formatRelativeTime(flow.updatedAt)}</span>
+            <span className="ml-auto truncate">{formatRelativeTime(flow.updatedAt)}</span>
           </div>
 
           {flow.lastRunStatus && (

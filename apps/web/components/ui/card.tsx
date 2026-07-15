@@ -14,7 +14,7 @@ const Card = React.forwardRef<
     className={cn(
       "rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-200 ease-flow",
       variant === "interactive" &&
-        "hover:shadow-md hover:border-border/80 cursor-pointer hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-biolume focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none hover:shadow-biolume/5",
+        "hover:shadow-lg hover:border-biolume/30 cursor-pointer hover:-translate-y-0.5 hover:shadow-biolume/5 focus-visible:ring-2 focus-visible:ring-biolume focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none relative overflow-hidden before:absolute before:inset-0 before:rounded-[inherit] before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300 before:pointer-events-none before:shadow-[inset_0_1px_0_rgba(46,230,182,0.08)]",
       variant === "accent" &&
         "border-biolume/25 bg-gradient-to-br from-biolume/[0.04] via-transparent to-transparent shadow-sm shadow-biolume/5",
       variant === "glow" &&

@@ -33,8 +33,8 @@ export function SearchCommand({
   className,
 }: SearchCommandProps) {
   return (
-    <div className={cn("flex flex-col sm:flex-row items-start sm:items-center gap-3", className)}>
-      <div className="flex-1 w-full sm:max-w-sm">
+    <div className={cn("flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3", className)}>
+      <div className="flex-1 w-full sm:max-w-xs lg:max-w-sm">
         <SearchInput
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}

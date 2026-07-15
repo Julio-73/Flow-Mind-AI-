@@ -37,21 +37,21 @@ export function StatsCard({
   return (
     <Card className={cn(variantStyles[variant], className)}>
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-sm font-medium text-muted-foreground">
+        <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground">
           {title}
         </CardTitle>
-        {icon && <div className="text-muted-foreground">{icon}</div>}
+        {icon && <div className="text-muted-foreground shrink-0">{icon}</div>}
       </CardHeader>
       <CardContent>
         {loading ? (
           <div className="space-y-2">
-            <Skeleton className="h-8 w-24" />
-            <Skeleton className="h-3 w-32" />
+            <Skeleton className="h-7 sm:h-8 w-20 sm:w-24" />
+            <Skeleton className="h-3 w-28 sm:w-32" />
           </div>
         ) : (
           <>
-            <div className="text-2xl font-bold font-sora tabular-nums">{value}</div>
-            <div className="mt-1 flex items-center gap-2">
+            <div className="text-xl sm:text-2xl font-bold font-sora tabular-nums truncate">{value}</div>
+            <div className="mt-1 flex items-center gap-2 flex-wrap min-w-0">
               {trend && (
                 <span
                   className={cn(

@@ -20,9 +20,10 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         className="transition-[margin-left] duration-300 ease-flow max-lg:ml-0"
         style={mainStyle}
       >
-        <Topbar />
+        <div className="hidden lg:block">
+          <Topbar />
+        </div>
         <main id="main-content" className="p-4 lg:p-6 pt-4 lg:pt-6" tabIndex={-1}>
-          <div className="lg:hidden h-14" />
           {children}
         </main>
       </div>

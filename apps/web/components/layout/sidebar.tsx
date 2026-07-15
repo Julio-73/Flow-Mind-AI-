@@ -59,7 +59,7 @@ export function Sidebar() {
     <>
       {mobileSidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden animate-fade-in"
           onClick={toggleMobileSidebar}
         />
       )}
@@ -356,14 +356,14 @@ export function Sidebar() {
       </div>
 
       {/* Mobile top bar */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 h-14 glass-sidebar flex items-center justify-between px-4">
-        <button onClick={toggleMobileSidebar} aria-label={mobileSidebarOpen ? "Close menu" : "Open menu"} aria-expanded={mobileSidebarOpen}>
-          <div className="w-7 h-7 rounded-lg bg-biolume flex items-center justify-center">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 h-14 glass-sidebar flex items-center justify-between px-4 border-b border-border/50">
+        <button onClick={toggleMobileSidebar} className="p-2 -ml-2" aria-label={mobileSidebarOpen ? "Close menu" : "Open menu"} aria-expanded={mobileSidebarOpen}>
+          <div className="w-7 h-7 rounded-lg bg-biolume flex items-center justify-center shadow-lg shadow-biolume/20">
             <Waves className="h-3.5 w-3.5 text-void" aria-hidden="true" />
           </div>
         </button>
-        <span className="font-sora font-bold text-sm">{APP_NAME}</span>
-        <button onClick={toggle} aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}>
+        <span className="font-sora font-bold text-sm tracking-tight">{APP_NAME}</span>
+        <button onClick={toggle} className="p-2 -mr-2 text-muted-foreground hover:text-foreground transition-colors" aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}>
           {isDark ? <Sun className="h-4 w-4" aria-hidden="true" /> : <Moon className="h-4 w-4" aria-hidden="true" />}
         </button>
       </div>
