@@ -25,7 +25,7 @@ export function EmptyState({
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center py-16 text-center",
+        "flex flex-col items-center justify-center py-8 sm:py-16 text-center px-4",
         className
       )}
     >
@@ -64,7 +64,7 @@ export function ErrorState({
     <div
       role="alert"
       className={cn(
-        "flex flex-col items-center justify-center py-16 text-center",
+        "flex flex-col items-center justify-center py-8 sm:py-16 text-center px-4",
         className
       )}
     >
@@ -96,7 +96,7 @@ export function LoadingState({
       role="status"
       aria-live="polite"
       className={cn(
-        "flex flex-col items-center justify-center py-16 text-center",
+        "flex flex-col items-center justify-center py-8 sm:py-16 text-center px-4",
         className
       )}
     >

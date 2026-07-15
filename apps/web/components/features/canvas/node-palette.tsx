@@ -26,14 +26,14 @@ export function NodePalette() {
   );
 
   return (
-    <div className="absolute left-4 top-20 z-10 w-56">
+    <div className="absolute left-2 sm:left-4 top-16 sm:top-20 z-10 w-48 sm:w-56">
       <div className="rounded-lg border border-border/50 bg-card/95 backdrop-blur-sm shadow-sm">
         <div className="px-3 py-2 border-b border-border/50">
           <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-            Node Palette
+            Nodes
           </h3>
         </div>
-        <ScrollArea className="h-[calc(100vh-280px)]">
+        <ScrollArea className="max-h-[calc(100dvh-200px)] sm:h-[calc(100vh-280px)]">
           <div className="p-2 space-y-3">
             {FLOW_NODE_CATEGORIES.map((category) => (
               <div key={category.id}>

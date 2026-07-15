@@ -84,10 +84,10 @@ export default function GeneralSettingsPage() {
             id="workspace-icon"
             value={icon}
             onChange={(e) => setIcon(e.target.value)}
-            className="w-10 h-10 rounded-lg border border-input bg-background text-center text-lg"
+            className="w-10 h-10 min-w-[40px] rounded-lg border border-input bg-background text-center text-lg"
             maxLength={2}
           />
-          <Input value={name} onChange={(e) => setName(e.target.value)} className="flex-1" label="Workspace name" />
+          <Input value={name} onChange={(e) => setName(e.target.value)} className="flex-1 min-w-0" label="Workspace name" />
         </div>
       </SettingsSection>
 

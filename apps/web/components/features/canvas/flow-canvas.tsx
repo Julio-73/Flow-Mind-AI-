@@ -159,7 +159,7 @@ function FlowCanvasInner() {
             }
           }}
           maskColor="hsl(var(--background)/0.8)"
-          className="rounded-lg border-border"
+          className="rounded-lg border-border hidden lg:block"
           style={{ background: "hsl(var(--card))" }}
         />
         <Panel position="top-center">

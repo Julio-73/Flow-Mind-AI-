@@ -21,7 +21,7 @@ export function SettingsSection({
 }: SettingsSectionProps) {
   return (
     <Card className={cn("", className)}>
-      <CardHeader className="flex flex-row items-start justify-between">
+      <CardHeader className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
         <div>
           <CardTitle className="text-base">{title}</CardTitle>
           {description && (

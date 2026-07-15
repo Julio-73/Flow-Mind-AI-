@@ -3,11 +3,12 @@ import bcrypt from "bcryptjs";
 import { randomBytes } from "crypto";
 import { cookies } from "next/headers";
 
-const JWT_SECRET = process.env["JWT_SECRET"];
-
-if (!JWT_SECRET) {
-  throw new Error("JWT_SECRET environment variable is required");
+function getJwtSecret(): string {
+  const secret = process.env["JWT_SECRET"];
+  if (!secret) throw new Error("JWT_SECRET environment variable is required");
+  return secret;
 }
+const JWT_SECRET = getJwtSecret();
 const ACCESS_TOKEN_EXPIRY = "15m";
 const REFRESH_TOKEN_EXPIRY = "7d";
 

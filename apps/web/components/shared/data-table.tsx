@@ -170,6 +170,7 @@ export function DataTable<T>({
               size="icon-sm"
               onClick={() => setPage(0)}
               disabled={page === 0}
+              className="min-w-[36px] min-h-[36px]"
             >
               <ChevronsLeft className="h-4 w-4" />
             </Button>
@@ -178,6 +179,7 @@ export function DataTable<T>({
               size="icon-sm"
               onClick={() => setPage((p) => Math.max(0, p - 1))}
               disabled={page === 0}
+              className="min-w-[36px] min-h-[36px]"
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -186,6 +188,7 @@ export function DataTable<T>({
               size="icon-sm"
               onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
               disabled={page >= totalPages - 1}
+              className="min-w-[36px] min-h-[36px]"
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
@@ -194,6 +197,7 @@ export function DataTable<T>({
               size="icon-sm"
               onClick={() => setPage(totalPages - 1)}
               disabled={page >= totalPages - 1}
+              className="min-w-[36px] min-h-[36px]"
             >
               <ChevronsRight className="h-4 w-4" />
             </Button>

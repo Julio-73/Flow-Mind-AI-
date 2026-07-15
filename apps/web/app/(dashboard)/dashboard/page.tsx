@@ -69,7 +69,7 @@ export default function DashboardPage() {
   const [period, setPeriod] = useState("24h");
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
+    <div className="space-y-6 max-w-7xl mx-auto pb-4 sm:pb-6">
       <PageHeader
         title="Dashboard"
         description="Overview of your workspace activity"
@@ -81,7 +81,7 @@ export default function DashboardPage() {
       />
 
       {/* Period filter */}
-      <div className="flex items-center gap-1 overflow-x-auto no-scrollbar" role="radiogroup" aria-label="Chart period">
+      <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5" role="radiogroup" aria-label="Chart period">
         {CHART_PERIODS.map((p) => (
           <button
             key={p.value}
@@ -89,7 +89,7 @@ export default function DashboardPage() {
             aria-checked={period === p.value}
             onClick={() => setPeriod(p.value)}
             className={cn(
-              "px-3 py-1 text-xs rounded-md transition-all duration-200 ease-flow whitespace-nowrap",
+              "px-3 py-1.5 text-xs rounded-md transition-all duration-200 ease-flow whitespace-nowrap min-h-[32px]",
               period === p.value
                 ? "bg-biolume text-void font-medium shadow-sm shadow-biolume/20"
                 : "text-muted-foreground hover:text-foreground hover:bg-muted/50"

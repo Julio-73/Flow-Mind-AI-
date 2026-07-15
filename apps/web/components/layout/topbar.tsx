@@ -70,7 +70,7 @@ export function Topbar() {
                 )}
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-80">
+            <DropdownMenuContent align="end" className="w-80 max-w-[calc(100vw-2rem)]">
               <div className="flex items-center justify-between px-2 py-1.5 border-b border-border">
                 <span className="text-xs font-semibold text-muted-foreground">Notifications</span>
                 <button className="text-xs text-biolume hover:underline">Mark all read</button>

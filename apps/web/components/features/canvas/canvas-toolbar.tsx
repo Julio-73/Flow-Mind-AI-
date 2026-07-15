@@ -51,7 +51,7 @@ export function CanvasToolbar() {
 
   return (
     <TooltipProvider>
-      <div className="flex items-center gap-1 px-2 py-1.5 rounded-lg border border-border/50 bg-card/95 backdrop-blur-sm shadow-sm">
+      <div className="flex items-center gap-1 px-2 py-1.5 rounded-lg border border-border/50 bg-card/95 backdrop-blur-sm shadow-sm overflow-x-auto no-scrollbar">
         <Tooltip>
           <TooltipTrigger asChild>
             <Button

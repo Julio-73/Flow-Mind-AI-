@@ -22,7 +22,7 @@ export function NodeConfig() {
   const { data, id } = selectedNode;
 
   return (
-    <div className="absolute right-4 top-20 z-10 w-72">
+    <div className="absolute right-2 sm:right-4 top-16 sm:top-20 z-10 w-[calc(100vw-1rem)] sm:w-72 max-w-sm">
       <div className="rounded-lg border border-border/50 bg-card/95 backdrop-blur-sm shadow-sm">
         <div className="flex items-center justify-between px-3 py-2 border-b border-border/50">
           <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
@@ -30,7 +30,7 @@ export function NodeConfig() {
           </h3>
           <button
             onClick={() => selectNode(null)}
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            className="text-muted-foreground hover:text-foreground transition-colors p-1.5 -mr-1.5"
           >
             <X className="h-4 w-4" />
           </button>

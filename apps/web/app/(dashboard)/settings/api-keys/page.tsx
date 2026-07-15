@@ -68,66 +68,68 @@ export default function ApiKeysPage() {
       />
 
       <SettingsSection title="Active Keys">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Key Prefix</TableHead>
-              <TableHead>Scopes</TableHead>
-              <TableHead>Created</TableHead>
-              <TableHead>Last Used</TableHead>
-              <TableHead></TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {keys.length === 0 ? (
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
               <TableRow>
-                <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
-                  No API keys yet
-                </TableCell>
+                <TableHead>Name</TableHead>
+                <TableHead className="hidden sm:table-cell">Key Prefix</TableHead>
+                <TableHead className="hidden md:table-cell">Scopes</TableHead>
+                <TableHead className="hidden lg:table-cell">Created</TableHead>
+                <TableHead className="hidden lg:table-cell">Last Used</TableHead>
+                <TableHead></TableHead>
               </TableRow>
-            ) : (
-              keys.map((key) => (
-                <TableRow key={key.id}>
-                  <TableCell className="font-medium">{key.name}</TableCell>
-                  <TableCell>
-                    <code className="text-xs bg-muted px-1.5 py-0.5 rounded">
-                      {key.prefix}...
-                    </code>
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex flex-wrap gap-1">
-                      {key.scopes.map((s) => (
-                        <Badge key={s} variant="outline" className="text-[10px]">
-                          {s}
-                        </Badge>
-                      ))}
-                    </div>
-                  </TableCell>
-                  <TableCell className="text-xs text-muted-foreground">{key.createdAt}</TableCell>
-                  <TableCell className="text-xs text-muted-foreground">
-                    {key.lastUsedAt ? new Date(key.lastUsedAt).toLocaleDateString() : "Never"}
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-1">
-                      <Button variant="ghost" size="icon-sm">
-                        <Copy className="h-3.5 w-3.5" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon-sm"
-                        className="text-destructive"
-                        onClick={() => deleteKey(key.id)}
-                      >
-                        <Trash2 className="h-3.5 w-3.5" />
-                      </Button>
-                    </div>
+            </TableHeader>
+            <TableBody>
+              {keys.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
+                    No API keys yet
                   </TableCell>
                 </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
+              ) : (
+                keys.map((key) => (
+                  <TableRow key={key.id}>
+                    <TableCell className="font-medium truncate max-w-[120px] sm:max-w-none">{key.name}</TableCell>
+                    <TableCell className="hidden sm:table-cell">
+                      <code className="text-xs bg-muted px-1.5 py-0.5 rounded">
+                        {key.prefix}...
+                      </code>
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      <div className="flex flex-wrap gap-1">
+                        {key.scopes.map((s) => (
+                          <Badge key={s} variant="outline" className="text-[10px]">
+                            {s}
+                          </Badge>
+                        ))}
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden lg:table-cell text-xs text-muted-foreground">{key.createdAt}</TableCell>
+                    <TableCell className="hidden lg:table-cell text-xs text-muted-foreground">
+                      {key.lastUsedAt ? new Date(key.lastUsedAt).toLocaleDateString() : "Never"}
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-1">
+                        <Button variant="ghost" size="icon-sm" className="min-w-[36px] min-h-[36px]">
+                          <Copy className="h-3.5 w-3.5" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="icon-sm"
+                          className="text-destructive min-w-[36px] min-h-[36px]"
+                          onClick={() => deleteKey(key.id)}
+                        >
+                          <Trash2 className="h-3.5 w-3.5" />
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
+            </TableBody>
+          </Table>
+        </div>
       </SettingsSection>
 
       <Dialog open={showNew} onOpenChange={setShowNew}>

@@ -114,7 +114,7 @@ export function MemberList() {
 
 export function MemberInvite() {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
       <div className="flex-1">
         <input
           type="email"
@@ -122,21 +122,23 @@ export function MemberInvite() {
           className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm"
         />
       </div>
-      <Select>
-        <SelectTrigger className="w-28">
-          <SelectValue placeholder="Role" />
-        </SelectTrigger>
-        <SelectContent>
-          {WORKSPACE_ROLES.filter((r) => r !== "owner").map((role) => (
-            <SelectItem key={role} value={role} className="capitalize">
-              {role}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-      <Button variant="biolume" size="sm">
-        <UserPlus className="h-4 w-4 mr-1" /> Invite
-      </Button>
+      <div className="flex items-center gap-2">
+        <Select>
+          <SelectTrigger className="w-28">
+            <SelectValue placeholder="Role" />
+          </SelectTrigger>
+          <SelectContent>
+            {WORKSPACE_ROLES.filter((r) => r !== "owner").map((role) => (
+              <SelectItem key={role} value={role} className="capitalize">
+                {role}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <Button variant="biolume" size="sm">
+          <UserPlus className="h-4 w-4 mr-1" /> Invite
+        </Button>
+      </div>
     </div>
   );
 }

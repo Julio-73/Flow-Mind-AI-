@@ -99,8 +99,8 @@ export function ExecutionChart() {
                 className="w-full rounded-t-sm bg-gradient-to-t from-biolume/40 to-biolume/60 hover:from-biolume/60 hover:to-biolume/80 transition-all duration-200 ease-flow cursor-pointer relative"
                 style={{ height: `${(d.value / max) * 100}%` }}
               >
-                <div className="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-popover border text-xs px-2 py-1 rounded shadow whitespace-nowrap transition-opacity z-10">
-                  {d.value} runs at {d.time}
+                <div className="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-popover border text-xs px-2 py-1 rounded shadow whitespace-nowrap transition-opacity z-10 pointer-events-none">
+                  {d.value} runs
                 </div>
               </div>
             </div>

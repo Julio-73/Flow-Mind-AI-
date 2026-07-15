@@ -49,49 +49,51 @@ const typeIcon: Record<string, React.ReactNode> = {
 
 export function VariableTable() {
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Name</TableHead>
-          <TableHead>Type</TableHead>
-          <TableHead>Value</TableHead>
-          <TableHead>Used In</TableHead>
-          <TableHead>Updated</TableHead>
-          <TableHead></TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {MOCK_VARIABLES.map((v) => (
-          <TableRow key={v.id}>
-            <TableCell className="font-mono text-xs font-medium">{v.name}</TableCell>
-            <TableCell>
-              <Badge variant="outline" className="text-[10px] flex items-center gap-1 w-fit">
-                {typeIcon[v.type]}
-                {v.type}
-              </Badge>
-            </TableCell>
-            <TableCell>
-              <span className="font-mono text-xs text-muted-foreground">
-                {v.type === "secret" ? "••••••••" : v.value}
-              </span>
-            </TableCell>
-            <TableCell>
-              <span className="text-xs text-muted-foreground">{v.usedIn} flows</span>
-            </TableCell>
-            <TableCell className="text-xs text-muted-foreground">{v.updatedAt.slice(0, 10)}</TableCell>
-            <TableCell>
-              <div className="flex items-center gap-1">
-                <Button variant="ghost" size="icon-sm">
-                  <Edit3 className="h-3.5 w-3.5" />
-                </Button>
-                <Button variant="ghost" size="icon-sm" className="text-destructive">
-                  <Trash2 className="h-3.5 w-3.5" />
-                </Button>
-              </div>
-            </TableCell>
+    <div className="overflow-x-auto">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Name</TableHead>
+            <TableHead className="hidden sm:table-cell">Type</TableHead>
+            <TableHead>Value</TableHead>
+            <TableHead className="hidden md:table-cell">Used In</TableHead>
+            <TableHead className="hidden md:table-cell">Updated</TableHead>
+            <TableHead></TableHead>
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHeader>
+        <TableBody>
+          {MOCK_VARIABLES.map((v) => (
+            <TableRow key={v.id}>
+              <TableCell className="font-mono text-xs font-medium max-w-[120px] sm:max-w-none truncate">{v.name}</TableCell>
+              <TableCell className="hidden sm:table-cell">
+                <Badge variant="outline" className="text-[10px] flex items-center gap-1 w-fit">
+                  {typeIcon[v.type]}
+                  {v.type}
+                </Badge>
+              </TableCell>
+              <TableCell>
+                <span className="font-mono text-xs text-muted-foreground truncate block max-w-[100px] sm:max-w-none">
+                  {v.type === "secret" ? "••••••••" : v.value}
+                </span>
+              </TableCell>
+              <TableCell className="hidden md:table-cell">
+                <span className="text-xs text-muted-foreground">{v.usedIn} flows</span>
+              </TableCell>
+              <TableCell className="hidden md:table-cell text-xs text-muted-foreground">{v.updatedAt.slice(0, 10)}</TableCell>
+              <TableCell>
+                <div className="flex items-center gap-1">
+                  <Button variant="ghost" size="icon-sm" className="min-w-[36px] min-h-[36px]">
+                    <Edit3 className="h-3.5 w-3.5" />
+                  </Button>
+                  <Button variant="ghost" size="icon-sm" className="text-destructive min-w-[36px] min-h-[36px]">
+                    <Trash2 className="h-3.5 w-3.5" />
+                  </Button>
+                </div>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 }
