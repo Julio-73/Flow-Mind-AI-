@@ -105,7 +105,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build and push Docker image (app)
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: docker/Dockerfile
@@ -117,7 +117,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Build and push Docker image (worker)
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: docker/Dockerfile.worker
